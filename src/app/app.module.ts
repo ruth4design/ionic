@@ -8,12 +8,22 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+// import { HttpClientModule } from "@angular/common/http";
+
+import { HttpClientModule, HttpClient } from "@angular/common/http";
+import { ImagesPipe } from './pipes/images.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ImagesPipe],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule
+  ],
   providers: [
+    HttpClient,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
