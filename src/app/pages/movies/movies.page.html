@@ -15,7 +15,7 @@
 
   </ion-searchbar>
 </ion-toolbar>
-<div text-center *ngIf="isLoading">
+<div  *ngIf="isLoading">
   <ion-spinner name="crescent">
 
   </ion-spinner>
@@ -27,7 +27,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-list *ngIf="movies.lenght===0">
+  <ion-list *ngIf="movies.length===0">
     <ion-list-header>
       <ion-label>
         Ideas
@@ -37,7 +37,7 @@
       <ion-label color="primary">{{idea}}</ion-label>
     </ion-item>
   </ion-list>
-  <ion-list *ngIf="movies.lenght > 0">
+  <ion-list *ngIf="movies.length > 0">
     <ion-list-header>
       <ion-label>
         Resultados
@@ -46,7 +46,7 @@
         <ion-row>
           <ion-col size="6" *ngFor="let movie of movies">
             <ion-card (click)="showDetail(movie.id)">
-              <img [src]="movie.poster_path | images" alt="">
+              <img [src]="'https://image.tmdb.org/t/p/w600_and_h900_bestv2' + movie.poster_path" alt="">
               <ion-card-header no-padding>
                 <ion-card-subtitle class="movie-info" text-center>
                   {{movie.title}}
